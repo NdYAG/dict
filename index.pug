@@ -18,6 +18,6 @@ mixin senses(senses)
 each result in results 
   h2 #{result.word}
   p
-    vi #{result.functional_label}
+    em #{result.functional_label}
   ol
     +senses(result.definition)
