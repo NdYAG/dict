@@ -4,7 +4,7 @@
 
 Basically the flow runs in this way:
 
-![](http://7d9o0k.com1.z0.glb.clouddn.com/dict.jpg)
+![](http://7d9o0k.com1.z0.glb.clouddn.com/dict.png)
 
 _Select a word while you are reading on iOS device -> Share -> Run Workflow -> Get word pronunciation and definition using this API -> Save to Anki_
 
