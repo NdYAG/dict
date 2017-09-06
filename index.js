@@ -1,14 +1,16 @@
 const Koa = require('koa')
 const router = require('koa-route')
-const views = require('koa-views')
 const ratelimit = require('koa-ratelimit')
 const Redis = require('ioredis')
+const pug = require('pug')
+const path = require('path')
 const { argv } = require('yargs')
 const { CollegiateDictionary, WordNotFoundError } = require('mw-dict')
 const { DICT_API_KEY } = require('./config')
 
 const app = new Koa()
 const dict = new CollegiateDictionary(DICT_API_KEY)
+const render = pug.compileFile(path.join(__dirname, 'index.pug'))
 app.use(
   ratelimit({
     db: new Redis(),
@@ -16,20 +18,24 @@ app.use(
     max: 20
   })
 )
-app.use(views(__dirname), {
-  map: {
-    pug: 'pug'
-  }
-})
 app.use(
   router.post('/word/:word', async (ctx, word) => {
     try {
-      ctx.type = 'text/html'
+      ctx.type = 'application/json'
       let results = await dict.lookup(word)
       results = results.filter(r => r.word == word)
-      await ctx.render('index.pug', {
-        results
-      })
+      let output = results.map(
+        ({ word, functional_label, pronunciation, definition }) => {
+          let html = `<h1>${word}</h1><p><em>${functional_label}</em></p>${render(
+            { definition }
+          )}`
+          return {
+            pronunciation,
+            html
+          }
+        }
+      )
+      ctx.body = JSON.stringify(output)
     } catch (e) {
       if (e instanceof WordNotFoundError) {
         ctx.status = 404

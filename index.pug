@@ -15,9 +15,4 @@ mixin senses(senses)
         if sense.senses
           +senses(sense.senses)
 
-each result in results 
-  h2 #{result.word}
-  p
-    em #{result.functional_label}
-  ol
-    +senses(result.definition)
++senses(definition)
