@@ -1,0 +1,23 @@
+mixin senses(senses)
+  ol
+    each sense in senses
+      li
+        strong #{sense.number}
+        if sense.meanings
+          span #{sense.meanings.join(' ')}
+        if sense.synonyms
+          each synonym in sense.synonyms
+            a #{synonym}
+        if sense.illustrations
+          ul
+            each illustration in sense.illustrations
+              li #{illustration}
+        if sense.senses
+          +senses(sense.senses)
+
+each result in results 
+  h2 #{result.word}
+  p
+    vi #{result.functional_label}
+  ol
+    +senses(result.definition)
