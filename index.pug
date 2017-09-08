@@ -3,6 +3,8 @@ mixin senses(senses)
     each sense in senses
       li
         strong #{sense.number}
+        if sense.status
+          em #{sense.status}
         if sense.meanings
           span #{sense.meanings.join(' ')}
         if sense.synonyms
