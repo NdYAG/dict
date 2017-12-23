@@ -1,3 +1,4 @@
 module.exports = {
-  DICT_API_KEY: ''
+  COLLEGIATE_DICT_API_KEY: '',
+  LEARNERS_DICT_API_KEY: ''
 }
