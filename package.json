@@ -6,10 +6,10 @@
   "dependencies": {
     "ioredis": "^3.1.4",
     "koa": "^2.3.0",
-    "koa-ratelimit": "^4.0.0",
+    "koa-ratelimit": "^4.1.0",
     "koa-route": "^3.2.0",
     "mw-dict": "^2.0.0",
-    "pug": "^2.0.0-rc.3",
+    "pug": "^2.0.0",
     "urlencoded-body-parser": "^2.0.1",
     "yargs": "^12.0.2"
   }
