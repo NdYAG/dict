@@ -9,7 +9,7 @@
     "koa-ratelimit": "^4.0.0",
     "koa-route": "^3.2.0",
     "mw-dict": "^2.0.0",
-    "pug": "^2.0.0-rc.3",
+    "pug": "^3.0.1",
     "urlencoded-body-parser": "^2.0.1",
     "yargs": "^12.0.2"
   }
