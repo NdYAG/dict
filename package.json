@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "ioredis": "^3.1.4",
-    "koa": "^2.3.0",
-    "koa-ratelimit": "^4.0.0",
+    "ioredis": "^3.2.2",
+    "koa": "^2.5.2",
+    "koa-ratelimit": "^4.1.2",
     "koa-route": "^3.2.0",
     "mw-dict": "^2.0.0",
     "pug": "^2.0.0-rc.3",
